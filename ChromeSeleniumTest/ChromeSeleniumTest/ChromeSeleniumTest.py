@@ -1,24 +1,30 @@
 from selenium import webdriver
 import time
 
+#Opening Browser & Going to Item Page
 browser = webdriver.Chrome()
 browser.get('https://www.bestbuy.ca/en-ca/product/toshiba-55-4k-uhd-hdr-led-smart-tv-55lf621c21-fire-tv-edition-only-at-best-buy/14422159')
+
+#Clicking the Add To Cart Button (Don't forget to add size option)
 addToCartButton = browser.find_element_by_xpath('//*[@id="test"]/button')
 addToCartButton.click()
 
+#Clicking the Go To Cart Button
 time.sleep(10)
 goToCartButton = browser.find_element_by_xpath('//*[@id="root"]/div/div/div[4]/div[1]/div/div/div[4]/div[2]/div/a[1]')
 goToCartButton.click()
 
+#Clicking the checkout button
 time.sleep(5)
 checkoutButton = browser.find_element_by_xpath('//*[@id="root"]/div/div/div[4]/div[2]/div[2]/section/div/section/section[2]/div[2]/div/a')
 checkoutButton.click()
 
+#Clicking the Guest Checkout button (Most likely user would want this when running multiple profiles).
 time.sleep(2)
 guestCheckoutButton = browser.find_element_by_xpath('//*[@id="root"]/div/div[3]/div/div/div/div[2]/div/div[2]/a/span')
 guestCheckoutButton.click()
 
-
+#Entering User Shipping Info.
 time.sleep(7)
 emailBox = browser.find_element_by_xpath('//*[@id="email"]')
 emailBox.send_keys('whoisbricksy@gmail.com')
@@ -41,6 +47,7 @@ phoneBox.send_keys('5147951728')
 continueBox = browser.find_element_by_xpath('//*[@id="posElement"]/section/section[1]/button/span')
 continueBox.click()
 
+#Entering Payment Info.
 time.sleep(7)
 cardNumberBox = browser.find_element_by_xpath('//*[@id="shownCardNumber"]')
 cardNumberBox.send_keys('1111222233334444')
